@@ -1,0 +1,81 @@
+generated: '2026-07-21'
+method: derived
+source: https://docs.saucelabs.com/testfairy/api-reference/rest-api/
+description: >-
+  Entity-relationship model for the TestFairy REST API, derived from the
+  documented resource endpoints (projects, builds, testers, tester groups, sites,
+  webhooks, feedback, audits, permissions). No OpenAPI is published by the
+  provider, so relationships are inferred from the URL path hierarchy and
+  documented parameters.
+entities:
+  - name: Project
+    endpoint: /api/1/projects/, /api/2/projects/{id}
+    description: An application project; the top-level container for builds and testers.
+  - name: Build
+    endpoint: /api/1/projects/{id}/builds/{build-id}
+    description: An uploaded app version (APK/AAB/IPA) belonging to a project.
+  - name: Tester
+    endpoint: /api/1/testers/{id}
+    description: A beta tester who can be invited to builds and belongs to groups.
+  - name: TesterGroup
+    endpoint: /api/1/testers/groups/{group-id}, /api/1/groups/{id}
+    description: A named group of testers, scoped to projects.
+  - name: Site
+    endpoint: /api/1/site/{id}
+    description: A distribution site/landing page.
+  - name: Webhook
+    endpoint: /api/1/webhook/{id}
+    description: A configured HTTP callback for project events (upload, feedback).
+  - name: Feedback
+    endpoint: /api/1/feedbacks/
+    description: Tester feedback captured against a build/session.
+  - name: Audit
+    endpoint: /api/2/audits/
+    description: Admin and tester activity trail entries.
+  - name: Permission
+    endpoint: /api/1/cpanel/permissions/
+    description: Admin/role permissions for the account.
+relationships:
+  - from: Build
+    to: Project
+    type: belongs_to
+    via: project-id
+  - from: Project
+    to: Build
+    type: has_many
+    via: builds
+  - from: Project
+    to: Tester
+    type: has_many
+    via: testers
+  - from: Group
+    to: Tester
+    type: has_many
+    via: testers
+  - from: Group
+    to: Project
+    type: has_many
+    via: projects
+  - from: Tester
+    to: TesterGroup
+    type: has_many
+    via: groups
+  - from: Webhook
+    to: Project
+    type: has_many
+    via: projects (selected projects per webhook)
+  - from: Feedback
+    to: Build
+    type: belongs_to
+    via: build
+  - from: Invite
+    to: Build
+    type: belongs_to
+    via: build-id
+  - from: Invite
+    to: Group
+    type: references
+    via: groups
+notes: >-
+  Identifiers are numeric (project-id, build-id, tester-id, group-id, webhook-id,
+  site-id). No documented string id-prefix scheme.

@@ -1,0 +1,40 @@
+generated: '2026-07-21'
+method: derived
+source: https://docs.saucelabs.com/testfairy/api-reference/rest-api/, https://docs.saucelabs.com/testfairy/api-reference/upload-api/
+format: json-status-envelope
+description: >-
+  TestFairy signals errors with standard HTTP status codes plus a JSON body
+  carrying a top-level "status" field ("ok" | "fail"); failures include an error
+  message. This is not RFC 9457 problem+json. The problem set below is derived
+  from the documented endpoints and common auth/upload failure modes; TestFairy
+  does not publish a numbered error-code registry.
+envelope:
+  success: '{ "status": "ok", ... }'
+  failure: '{ "status": "fail", "message": "..." }'
+problems:
+  - status: 400
+    title: Bad request
+    detail: Missing or invalid required parameter (e.g. missing file on upload, missing email when adding a tester).
+  - status: 401
+    title: Unauthorized
+    detail: Missing or invalid API key / OIDC bearer token. Check the email:api-key Basic credentials.
+    remediation: Verify the API key on the TestFairy settings page and the account email used as the Basic username.
+  - status: 403
+    title: Forbidden
+    detail: Authenticated but not permitted for the target project/resource.
+  - status: 404
+    title: Not found
+    detail: Unknown project-id, build-id, tester-id, group-id, webhook-id, or site-id.
+  - status: 413
+    title: Payload too large
+    detail: Uploaded build/symbols exceed the accepted size.
+  - status: 415
+    title: Unsupported media type
+    detail: Upload file is not a supported package (APK/AAB/IPA/ZIP).
+  - status: 500
+    title: Internal server error
+    detail: Unexpected server-side failure; retry or contact support.
+notes: >-
+  Status codes above 400/401/404/500 are directly implied by the documented CRUD
+  surface; 413/415 reflect the Upload API's file constraints. See
+  conventions/testfairy-conventions.yml for the error-envelope shape.

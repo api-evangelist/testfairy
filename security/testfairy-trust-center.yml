@@ -1,0 +1,29 @@
+generated: '2026-07-21'
+method: searched
+probe: true
+source: https://trust.saucelabs.com/, https://saucelabs.com/company/news/sauce-labs-achieves-both-iso-27001-and-soc-2-type-2-certification-for-entire-portfolio
+url: https://trust.saucelabs.com/
+description: >-
+  TestFairy is part of Sauce Labs and is covered by the Sauce Labs Trust Center
+  and its portfolio-wide security/privacy certifications (the 2021 acquisition of
+  TestFairy is named in the certification scope). Certifications listed below are
+  from Sauce Labs public announcements and the trust center.
+certifications:
+  - SOC 2 Type II
+  - ISO/IEC 27001
+  - ISO/IEC 27701
+  - ISO/IEC 42001
+  - GDPR
+  - CCPA
+  - CSA
+  - FSQS (EMEA financial services)
+evidence:
+  - source: https://saucelabs.com/company/news/sauce-labs-achieves-both-iso-27001-and-soc-2-type-2-certification-for-entire-portfolio
+    keywords: [iso 27001, soc 2 type 2, testfairy, portfolio]
+  - source: https://trust.saucelabs.com/
+    keywords: [trust center, certifications, compliance]
+notes: >-
+  testfairy.com and app.testfairy.com do not host their own security.txt or
+  disclosure page (probed 404); security/compliance is centralized under Sauce
+  Labs. No public bug-bounty program (HackerOne/Bugcrowd) was found, so no
+  vulnerability-disclosure artifact is emitted.

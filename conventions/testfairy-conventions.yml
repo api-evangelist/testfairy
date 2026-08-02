@@ -1,0 +1,45 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.saucelabs.com/testfairy/api-reference/rest-api/
+description: >-
+  Cross-cutting request/response conventions for the TestFairy REST + Upload
+  APIs, captured from the Sauce Labs documentation and derived from the
+  documented endpoint surface. Cross-links authentication/, errors/, lifecycle/.
+authentication:
+  style: HTTP Basic (email:api-key) or OIDC bearer token
+  ref: authentication/testfairy-authentication.yml
+idempotency:
+  supported: false
+  notes: >-
+    TestFairy does not document an idempotency-key header or request-replay
+    contract. Uploads are naturally versioned per build; there is no
+    Idempotency-Key mechanism.
+pagination:
+  style: page-number
+  params:
+    page: Page number, default 1
+    per_page: Items per page, default 25-50, maximum 100-200
+  applies_to: v2 endpoints and some v1 collection endpoints
+  notes: Not all v1 endpoints paginate; large collections on /api/2/ are paginated.
+versioning:
+  style: uri-path
+  values: [/api/1/, /api/2/]
+  ref: lifecycle/testfairy-lifecycle.yml
+error_envelope:
+  format: json
+  shape: 'Responses carry a top-level "status" field ("ok" on success, "fail" on error); failures include an error message/code. HTTP status codes signal the class of error.'
+  ref: errors/testfairy-problem-types.yml
+content_types:
+  request: application/x-www-form-urlencoded or multipart/form-data (uploads use multipart/form-data)
+  response: application/json
+request_tracing:
+  request_id_header: null
+  notes: No documented request-id/correlation header.
+rate_limit_signaling:
+  documented: false
+  notes: The API reference does not document rate-limit headers or quotas.
+metadata:
+  custom_metadata: 'Upload API accepts arbitrary custom fields via metadata.* prefixed form parameters, stored alongside the build.'
+webhooks:
+  ref: asyncapi/testfairy-webhooks-asyncapi.yml
+  notes: Event delivery is JSON POST to configured webhook URLs (events, e.g. upload, feedback).

@@ -1,0 +1,37 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.saucelabs.com/testfairy/api-reference/rest-api/, https://trust.saucelabs.com/, https://saucelabs.com/company/news/sauce-labs-achieves-both-iso-27001-and-soc-2-type-2-certification-for-entire-portfolio
+description: >-
+  Cross-cutting standards conformance for the TestFairy API and platform. Auth
+  standards are derived from the documented security schemes; organizational
+  compliance certifications are published by Sauce Labs (TestFairy's parent) and
+  explicitly cover the TestFairy product in the portfolio-wide certification.
+standards:
+  - id: http-basic-auth
+    conforms: true
+    evidence: REST API authenticates via HTTP Basic (email:api-key).
+  - id: oidc
+    conforms: true
+    evidence: OIDC bearer tokens accepted with X-OIDC-Config-Key header (Sauce Labs SSO).
+  - id: oauth2-authorization-code
+    conforms: false
+    evidence: No OAuth 2.0 authorization-code/scope surface documented for the API.
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: Errors use a JSON status-envelope, not application/problem+json.
+  - id: rfc8594-sunset-header
+    conforms: false
+    evidence: Deprecations announced in docs; no Sunset/Deprecation headers.
+  - id: soc2-type2
+    conforms: true
+    evidence: Sauce Labs SOC 2 Type II covers the entire portfolio including TestFairy.
+  - id: iso-27001
+    conforms: true
+    evidence: Sauce Labs ISO/IEC 27001 certification covers TestFairy.
+  - id: iso-27701
+    conforms: true
+    evidence: Sauce Labs ISO/IEC 27701 (privacy) certification.
+  - id: gdpr
+    conforms: true
+    evidence: Sauce Labs is GDPR compliant (also CCPA).
+compliance_program: https://trust.saucelabs.com/

@@ -1,0 +1,33 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/testfairy/react-native-testfairy/releases
+description: >-
+  TestFairy does not publish a dated API changelog page; the versioned, dated
+  release history lives in the per-SDK GitHub repositories under the testfairy
+  organization. This captures the recent, dated release window for the
+  React Native SDK (representative of the SDK release cadence). SDK versions are
+  kept in step across platforms (native iOS/Android, React Native, Flutter,
+  NativeScript, Cordova).
+scheme: semver
+current_version: '2.65.0'
+current_version_source: https://www.npmjs.com/package/react-native-testfairy
+entries:
+  - version: '2.64.0'
+    date: '2024-01-23'
+    source: https://github.com/testfairy/react-native-testfairy/releases/tag/2.64.0
+  - version: '2.63.0'
+    date: '2024-01-10'
+    source: https://github.com/testfairy/react-native-testfairy/releases/tag/2.63.0
+  - version: '2.62.0'
+    date: '2023-02-16'
+    source: https://github.com/testfairy/react-native-testfairy/releases/tag/2.62.0
+  - version: '2.61.0'
+    date: '2022-12-05'
+    source: https://github.com/testfairy/react-native-testfairy/releases/tag/2.61.0
+  - version: '2.60.0'
+    date: '2022-05-17'
+    source: https://github.com/testfairy/react-native-testfairy/releases/tag/2.60.0
+notes: >-
+  Release notes/tags are dated in each testfairy-org SDK repo. This window is the
+  React Native SDK; other SDKs (pub.dev testfairy, CocoaPods TestFairy) track
+  parallel version numbers.

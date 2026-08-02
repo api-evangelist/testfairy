@@ -1,0 +1,30 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.saucelabs.com/testfairy/api-reference/rest-api/, https://status.saucelabs.com/
+description: >-
+  Versioning, deprecation, SLA, and status posture for the TestFairy REST +
+  Upload APIs. TestFairy runs under Sauce Labs; runtime status is reported on the
+  shared Sauce Labs status page.
+versioning:
+  scheme: uri-path
+  current: v2
+  values: [/api/1/, /api/2/]
+  docs: https://docs.saucelabs.com/testfairy/api-reference/rest-api/
+  notes: >-
+    The API is versioned in the URL path. v1 (/api/1/) is the long-standing
+    surface; v2 (/api/2/) adds paginated project/audit endpoints. Both are live.
+deprecation:
+  policy_url: https://docs.saucelabs.com/testfairy/api-reference/rest-api/
+  sunset_header: false
+  notes: >-
+    The v1 audit-trail endpoint (GET /api/1/audits) is documented as deprecated
+    in favor of GET /api/2/audits/. No RFC 8594 Sunset/Deprecation response
+    headers are documented.
+  deprecated_operations:
+    - 'GET /api/1/audits (superseded by GET /api/2/audits/)'
+sla:
+  url: https://saucelabs.com/pricing
+  public_uptime_target: null
+  notes: No numeric public uptime SLA is published for TestFairy; enterprise availability commitments are handled via Sauce Labs agreements.
+status_page: https://status.saucelabs.com/
+rate_limits: null

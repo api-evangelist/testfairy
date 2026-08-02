@@ -1,0 +1,47 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.saucelabs.com/testfairy/api-reference/rest-api/, https://docs.saucelabs.com/testfairy/api-reference/upload-api/
+docs: https://docs.saucelabs.com/testfairy/api-reference/rest-api/
+description: >-
+  TestFairy authenticates REST API calls with HTTP Basic auth using your account
+  email as the username and your API key as the password, or with an OIDC bearer
+  token (Sauce Labs single sign-on). The API key is found on the TestFairy
+  account settings page. The Upload API additionally accepts the API key as an
+  `api_key` multipart form field. No OAuth 2.0 authorization-code / scope surface
+  is documented, so there is no scopes/ artifact for this provider.
+summary:
+  types: [http, bearer, apiKey]
+  api_key_in: [header, formData]
+  oauth2_flows: []
+schemes:
+  - name: basicAuth
+    type: http
+    scheme: basic
+    description: >-
+      HTTP Basic authentication. Username = account email, password = API key.
+      Example: curl -u "email:api-key" https://mobile.saucelabs.com/api/1/projects/
+    location: Authorization header
+    sources: [docs]
+  - name: oidcBearer
+    type: http
+    scheme: bearer
+    description: >-
+      OIDC bearer token issued through Sauce Labs SSO. Sent as
+      `Authorization: Bearer <token>` together with an `X-OIDC-Config-Key` header
+      identifying the OIDC configuration.
+    location: Authorization header + X-OIDC-Config-Key header
+    sources: [docs]
+  - name: uploadApiKey
+    type: apiKey
+    in: formData
+    parameter_name: api_key
+    description: >-
+      The Upload API (POST /api/upload) accepts the API key as an `api_key`
+      multipart form field: curl https://app.testfairy.com/api/upload -F
+      api_key='your_api_key' -F file=@app.apk
+    sources: [docs]
+notes: >-
+  API keys are long-lived and account-scoped; rotate them from the TestFairy
+  settings page. There is no per-scope permission model exposed via the API —
+  admin/tester access levels are managed through the dashboard permissions
+  surface (GET /api/1/cpanel/permissions/).

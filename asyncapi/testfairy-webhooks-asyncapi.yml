@@ -1,0 +1,39 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.saucelabs.com/testfairy/api-reference/webhooks/
+spec_type: Webhooks
+description: >-
+  TestFairy delivers event notifications via configurable webhooks. Webhooks are
+  configured on the User Preferences > Webhooks page; each webhook targets
+  selected projects and selected event types. Delivery is an HTTP POST with a
+  JSON body whose top-level `event` field names the event type. No published
+  AsyncAPI document exists, so this captures the webhook catalog as a Webhooks
+  surface (not fabricated into an AsyncAPI spec).
+delivery:
+  method: POST
+  content_type: application/json
+  configured_at: 'TestFairy dashboard — User Preferences > Webhooks'
+  scoping: per-project + per-event
+  signature: none documented
+events:
+  - name: upload
+    description: A new build was uploaded to a project.
+    payload_fields:
+      - event
+      - timestamp
+      - version
+      - build
+      - appName
+      - filesize
+      - iconUrl
+      - communityUrl
+  - name: feedback
+    description: A tester submitted feedback on a build/session.
+    payload_fields:
+      - event
+      - timestamp
+      - (feedback-specific fields)
+notes: >-
+  The JSON payload always includes an `event` field identifying the type; other
+  fields are event-specific. Additional event types may exist in the dashboard;
+  upload and feedback are the documented examples.

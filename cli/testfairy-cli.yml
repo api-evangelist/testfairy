@@ -1,0 +1,42 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/testfairy/command-line-uploader, https://github.com/testfairy/testfairy-fetch-sessions, https://docs.saucelabs.com/testfairy/api-reference/upload-api/
+description: >-
+  TestFairy ships first-party command-line tooling for CI/CD: a shell uploader
+  that pushes builds via the Upload API, a Java uploader, and a Node/TypeScript
+  tool for downloading recorded session logs and videos. The binaries themselves
+  are catalogued in packages/; this artifact enumerates their command surface.
+docs: https://docs.saucelabs.com/testfairy/api-reference/upload-api/
+tools:
+  - name: command-line-uploader
+    repo: https://github.com/testfairy/command-line-uploader
+    language: shell
+    install: 'Download testfairy-uploader.sh from the repo; requires curl.'
+    purpose: Upload an APK/AAB/IPA build to TestFairy from the command line / CI.
+    key_flags:
+      - '-k / TESTFAIRY_API_KEY: API key'
+      - '-a: app file (.apk/.ipa)'
+      - '-s: symbols (dSYM zip / Android mapping .txt)'
+      - '-g: tester groups'
+      - '-c: release notes / changelog'
+      - '-n: notify testers'
+    example: "./testfairy-uploader.sh -k YOUR_API_KEY app.apk"
+  - name: testfairy-uploader-cli
+    repo: https://github.com/testfairy/testfairy-uploader-cli
+    language: java
+    purpose: JVM command-line uploader for build distribution (used by CI plugins).
+  - name: testfairy-fetch-sessions
+    repo: https://github.com/testfairy/testfairy-fetch-sessions
+    language: typescript
+    install: 'Node CLI (see repo).'
+    purpose: Download logs and videos of recorded TestFairy sessions for offline analysis.
+ci_integrations:
+  - Jenkins (testfairy-jenkins-plugin)
+  - Gradle / Android Studio (testfairy-gradle-plugin)
+  - fastlane (testfairy action)
+  - Travis CI (dpl / testfairy provider)
+  - CircleCI (circleci-testfairy-orb)
+notes: >-
+  The uploaders wrap the Upload API (POST /api/upload). There is no single unified
+  `testfairy` binary that covers the full REST surface; distribution and session
+  retrieval are split across the tools above.

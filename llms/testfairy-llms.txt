@@ -1,0 +1,53 @@
+# TestFairy
+
+> TestFairy is a mobile app testing and distribution platform (now part of Sauce Labs). Upload iOS/Android builds, distribute them to beta testers, and record video sessions of testers using the app alongside device logs, crash reports, and CPU/memory/network telemetry. It exposes a REST API plus a dedicated Upload API, native and cross-platform SDKs, and CI command-line uploaders.
+
+Authentication: HTTP Basic (account email : API key) or OIDC bearer token (Sauce Labs SSO). The API key is on the TestFairy settings page. Versioned by URL path (/api/1/, /api/2/).
+
+## APIs
+
+- [TestFairy REST API reference](https://docs.saucelabs.com/testfairy/api-reference/rest-api/): Projects, builds, testers, tester groups, sites, webhooks, feedback, audits, permissions.
+- [Upload API](https://docs.saucelabs.com/testfairy/api-reference/upload-api/): POST APK/AAB/IPA builds and symbol files. Base: https://mobile.saucelabs.com/api/upload/ (also app.testfairy.com/api/upload).
+- [Webhooks](https://docs.saucelabs.com/testfairy/api-reference/webhooks/): JSON POST event callbacks (upload, feedback).
+
+## Base URLs
+
+- https://mobile.saucelabs.com/api/1/ (US-East-1, primary)
+- https://mobile.eu-central-1.saucelabs.com/api/1/ (EU-Central-1)
+- https://api.testfairy.com/api/1/ (legacy)
+
+## SDKs & tools
+
+- iOS: CocoaPods `TestFairy` / Swift Package
+- Android: Gradle plugin (testfairy-gradle-plugin)
+- React Native: npm `react-native-testfairy`
+- Flutter: pub.dev `testfairy`
+- NativeScript: npm `nativescript-testfairy`
+- Cordova / Unity / Xamarin plugins
+- CLI: command-line-uploader, testfairy-uploader-cli, testfairy-fetch-sessions
+- GitHub org: https://github.com/testfairy
+
+## Docs
+
+- [Documentation home](https://docs.saucelabs.com/testfairy/)
+- [Getting started / uploading an app](https://docs.saucelabs.com/testfairy/using-testfairy/uploading-an-app/)
+- [Managing beta testers](https://docs.saucelabs.com/testfairy/testers/managing-testers/)
+- [Status page](https://status.saucelabs.com/)
+- [Trust center / compliance](https://trust.saucelabs.com/)
+
+## Artifacts (API Evangelist enrichment)
+
+- authentication/testfairy-authentication.yml
+- packages/testfairy-packages.yml
+- cli/testfairy-cli.yml
+- conventions/testfairy-conventions.yml
+- lifecycle/testfairy-lifecycle.yml
+- changelog/testfairy-changelog.yml
+- errors/testfairy-problem-types.yml
+- conformance/testfairy-conformance.yml
+- data-model/testfairy-data-model.yml
+- mcp/testfairy-mcp.yml
+- asyncapi/testfairy-webhooks-asyncapi.yml
+- security/testfairy-domain-security.yml
+- security/testfairy-trust-center.yml
+- well-known/testfairy-well-known.yml

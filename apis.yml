@@ -1,7 +1,34 @@
 aid: testfairy
 name: TestFairy
-description: TestFairy is a company surfaced as a portfolio company of 500-global and added to the API
-  Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 15
+  pass: local-v1
+description: >-
+  TestFairy is a mobile app testing and distribution platform, now part of Sauce
+  Labs, that lets teams upload iOS and Android builds, distribute them to beta
+  testers, and record video sessions of testers using the app alongside device
+  logs, crash reports, and CPU/memory/network telemetry for debugging. It exposes
+  a REST API for managing projects, builds, testers, tester groups, sites,
+  webhooks, and audit trails, plus a separate Upload API for pushing APK/AAB/IPA
+  packages and symbol files from CI. Native SDKs (iOS, Android) and cross-platform
+  wrappers (React Native, Flutter, Cordova, Unity, Xamarin, NativeScript) instrument
+  apps, and command-line uploaders integrate with Jenkins, fastlane, Travis, and
+  CircleCI. Authentication is HTTP Basic (email + API key) or OIDC bearer tokens.
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://raw.githubusercontent.com/api-evangelist/testfairy/main/testfairy.png
 url: https://raw.githubusercontent.com/api-evangelist/testfairy/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -9,12 +36,39 @@ x-backed-by:
 - 500-global
 x-tier: stub
 x-tier-reason: portfolio-lead
+x-acquired-by: sauce-labs
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
-apis: []
+- Mobile
+- Testing
+- App Distribution
+- Beta Testing
+- Quality Assurance
+- Developer Tools
+- Session Recording
+- Crash Reporting
+- DevOps
+apis:
+- name: TestFairy REST API
+  description: >-
+    REST API for managing TestFairy projects, builds, testers, tester groups,
+    sites, webhooks, permissions, feedback, and audit trails. Authenticated with
+    HTTP Basic (email:api-key) or OIDC bearer tokens. URI-path versioned (/api/1/,
+    /api/2/). The companion Upload API pushes APK/AAB/IPA builds and symbol files.
+  humanURL: https://docs.saucelabs.com/testfairy/api-reference/rest-api/
+  baseURL: https://mobile.saucelabs.com/api/1/
+  tags:
+  - Mobile
+  - Testing
+  - App Distribution
+  properties:
+  - type: APIReference
+    url: https://docs.saucelabs.com/testfairy/api-reference/rest-api/
+  - type: Documentation
+    url: https://docs.saucelabs.com/testfairy/
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -23,3 +77,65 @@ maintainers:
 common:
 - type: Website
   url: https://testfairy.com
+- type: DeveloperPortal
+  url: https://docs.saucelabs.com/testfairy/
+- type: Documentation
+  url: https://docs.saucelabs.com/testfairy/
+- type: APIReference
+  url: https://docs.saucelabs.com/testfairy/api-reference/rest-api/
+- type: GettingStarted
+  url: https://docs.saucelabs.com/testfairy/
+- type: GitHubOrganization
+  url: https://github.com/testfairy
+- type: SignUp
+  url: https://app.testfairy.com/login
+- type: Login
+  url: https://app.testfairy.com/login
+- type: Pricing
+  url: https://saucelabs.com/pricing
+- type: TermsOfService
+  url: https://saucelabs.com/terms-of-service
+- type: PrivacyPolicy
+  url: https://saucelabs.com/privacy-policy
+- type: StatusPage
+  url: https://status.saucelabs.com/
+- type: Support
+  url: https://docs.saucelabs.com/
+- type: Authentication
+  url: authentication/testfairy-authentication.yml
+- type: Packages
+  url: packages/testfairy-packages.yml
+- type: SDKs
+  url: packages/testfairy-packages.yml
+- type: CLI
+  url: cli/testfairy-cli.yml
+- type: MCPServer
+  url: mcp/testfairy-mcp.yml
+- type: LLMsTxt
+  url: llms/testfairy-llms.txt
+- type: Conventions
+  url: conventions/testfairy-conventions.yml
+- type: Lifecycle
+  url: lifecycle/testfairy-lifecycle.yml
+- type: Deprecation
+  url: lifecycle/testfairy-lifecycle.yml
+- type: ChangeLog
+  url: changelog/testfairy-changelog.yml
+- type: ErrorCatalog
+  url: errors/testfairy-problem-types.yml
+- type: Conformance
+  url: conformance/testfairy-conformance.yml
+- type: Compliance
+  url: https://trust.saucelabs.com/
+- type: TrustCenter
+  url: security/testfairy-trust-center.yml
+- type: DataModel
+  url: data-model/testfairy-data-model.yml
+- type: Webhooks
+  url: asyncapi/testfairy-webhooks-asyncapi.yml
+- type: AsyncAPI
+  url: asyncapi/testfairy-webhooks-asyncapi.yml
+- type: WellKnown
+  url: well-known/testfairy-well-known.yml
+- type: DomainSecurity
+  url: security/testfairy-domain-security.yml

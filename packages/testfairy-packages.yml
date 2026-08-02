@@ -1,0 +1,85 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/testfairy, https://docs.saucelabs.com/testfairy/
+description: >-
+  First-party TestFairy client SDKs, framework wrappers, and uploader tools.
+  Verified against the public package registries (npm, pub.dev, CocoaPods) and
+  the testfairy GitHub organization at fetch time. TestFairy is now part of Sauce
+  Labs; the SDKs continue to publish under the original testfairy namespace. HTTP
+  status recorded at fetch time. official:true only where the package resolves to
+  a testfairy-org repository or an officially documented SDK.
+packages:
+  - language: swift
+    registry: cocoapods
+    name: TestFairy
+    url: https://cocoapods.org/pods/TestFairy
+    source: https://github.com/testfairy
+    install: pod 'TestFairy'
+    official: true
+    note: iOS/macOS native SDK. Also distributed as a Swift Package (testfairy-ios-sdk-swift-package).
+  - language: swift
+    registry: github
+    name: testfairy-ios-sdk-swift-package
+    url: https://github.com/testfairy/testfairy-ios-sdk-swift-package
+    source: https://github.com/testfairy/testfairy-ios-sdk-swift-package
+    install: 'SwiftPM: https://github.com/testfairy/testfairy-ios-sdk-swift-package'
+    official: true
+  - language: java
+    registry: github
+    name: testfairy-gradle-plugin
+    url: https://github.com/testfairy/testfairy-gradle-plugin
+    source: https://github.com/testfairy/testfairy-gradle-plugin
+    install: "classpath 'com.testfairy.plugins.gradle:testfairy-plugin:+'"
+    official: true
+    note: Android SDK integration + build-upload plugin for Gradle / Android Studio.
+  - language: javascript
+    registry: npm
+    name: react-native-testfairy
+    url: https://www.npmjs.com/package/react-native-testfairy
+    source: https://github.com/testfairy/react-native-testfairy
+    install: npm install react-native-testfairy
+    official: true
+  - language: dart
+    registry: pub.dev
+    name: testfairy
+    url: https://pub.dev/packages/testfairy
+    source: https://github.com/testfairy/testfairy-flutter
+    install: "flutter pub add testfairy"
+    official: true
+    note: Flutter integration, bundled with the native SDK.
+  - language: javascript
+    registry: npm
+    name: nativescript-testfairy
+    url: https://www.npmjs.com/package/nativescript-testfairy
+    source: https://github.com/testfairy/nativescript-testfairy
+    install: npm install nativescript-testfairy
+    official: true
+  - language: javascript
+    registry: github
+    name: testfairy-cordova-plugin
+    url: https://github.com/testfairy/testfairy-cordova-plugin
+    source: https://github.com/testfairy/testfairy-cordova-plugin
+    install: cordova plugin add https://github.com/testfairy/testfairy-cordova-plugin
+    official: true
+  - language: csharp
+    registry: github
+    name: testfairy-unity-plugin
+    url: https://github.com/testfairy/testfairy-unity-plugin
+    source: https://github.com/testfairy/testfairy-unity-plugin
+    install: 'Import the TestFairy Unity plugin package.'
+    official: true
+  - language: csharp
+    registry: github
+    name: testfairy-xamarin
+    url: https://github.com/testfairy/testfairy-xamarin
+    source: https://github.com/testfairy/testfairy-xamarin
+    install: 'Add the TestFairy Xamarin component.'
+    official: true
+  - language: javascript
+    registry: npm
+    name: testfairy
+    url: https://www.npmjs.com/package/testfairy
+    source: https://github.com/Urucas/testfairy
+    install: npm install testfairy
+    official: false
+    note: Third-party (Urucas) upload CLI wrapper; not published by the testfairy org.
