@@ -2,11 +2,10 @@ generated: '2026-07-21'
 method: derived
 status: candidate
 source: https://docs.saucelabs.com/testfairy/api-reference/rest-api/
-description: >-
-  TestFairy does not publish an official hosted or local MCP server. This is a
-  DERIVED candidate tool list mapping the documented REST endpoints to MCP tools,
-  so an agent could operate TestFairy build distribution and tester management.
-  Not an official artifact — a starting point for a community/first-party server.
+description: TestFairy does not publish an official hosted or local MCP server. This is a DERIVED candidate
+  tool list mapping the documented REST endpoints to MCP tools, so an agent could operate TestFairy build
+  distribution and tester management. Not an official artifact — a starting point for a community/first-party
+  server.
 server:
   name: testfairy
   transport: stdio
@@ -15,45 +14,51 @@ auth:
   scheme: http-basic (email:api-key) or OIDC bearer
   ref: authentication/testfairy-authentication.yml
 tools:
-  - name: list_projects
-    description: List all projects.
-    source_operation: 'GET /api/2/projects/'
-  - name: get_project
-    description: Get a single project by id.
-    source_operation: 'GET /api/2/projects/{id}'
-  - name: list_builds
-    description: List builds in a project.
-    source_operation: 'GET /api/1/projects/{id}/builds/'
-  - name: get_build
-    description: Get build metadata.
-    source_operation: 'GET /api/1/projects/{id}/builds/{build-id}'
-  - name: upload_build
-    description: Upload an APK/AAB/IPA build.
-    source_operation: 'POST /api/upload'
-  - name: invite_testers
-    description: Invite tester groups to a build.
-    source_operation: 'POST /api/1/projects/{id}/builds/{build-id}/invites/'
-  - name: list_testers
-    description: List all testers.
-    source_operation: 'GET /api/1/testers'
-  - name: add_tester
-    description: Add a new tester.
-    source_operation: 'POST /api/1/testers/'
-  - name: list_groups
-    description: List tester groups.
-    source_operation: 'GET /api/1/testers/groups'
-  - name: create_group
-    description: Create a tester group.
-    source_operation: 'POST /api/1/testers/groups'
-  - name: list_webhooks
-    description: List configured webhooks.
-    source_operation: 'GET /api/1/webhooks/'
-  - name: add_webhook
-    description: Register a webhook for project events.
-    source_operation: 'POST /api/1/webhook/'
-  - name: list_feedbacks
-    description: Get latest tester feedback.
-    source_operation: 'GET /api/1/feedbacks/'
-  - name: get_audits
-    description: Get the account audit trail.
-    source_operation: 'GET /api/2/audits/'
+- name: list_projects
+  description: List all projects.
+  source_operation: GET /api/2/projects/
+- name: get_project
+  description: Get a single project by id.
+  source_operation: GET /api/2/projects/{id}
+- name: list_builds
+  description: List builds in a project.
+  source_operation: GET /api/1/projects/{id}/builds/
+- name: get_build
+  description: Get build metadata.
+  source_operation: GET /api/1/projects/{id}/builds/{build-id}
+- name: upload_build
+  description: Upload an APK/AAB/IPA build.
+  source_operation: POST /api/upload
+- name: invite_testers
+  description: Invite tester groups to a build.
+  source_operation: POST /api/1/projects/{id}/builds/{build-id}/invites/
+- name: list_testers
+  description: List all testers.
+  source_operation: GET /api/1/testers
+- name: add_tester
+  description: Add a new tester.
+  source_operation: POST /api/1/testers/
+- name: list_groups
+  description: List tester groups.
+  source_operation: GET /api/1/testers/groups
+- name: create_group
+  description: Create a tester group.
+  source_operation: POST /api/1/testers/groups
+- name: list_webhooks
+  description: List configured webhooks.
+  source_operation: GET /api/1/webhooks/
+- name: add_webhook
+  description: Register a webhook for project events.
+  source_operation: POST /api/1/webhook/
+- name: list_feedbacks
+  description: Get latest tester feedback.
+  source_operation: GET /api/1/feedbacks/
+- name: get_audits
+  description: Get the account audit trail.
+  source_operation: GET /api/2/audits/
+deployment:
+  mode: none
+  verified: derived
+  tools: 14
+  checked: '2026-08-12'
+  source: catalog MCP census
